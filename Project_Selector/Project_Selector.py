@@ -59,20 +59,21 @@ def checkout_branch():
                 print("Invalid Branch - input is case-sensitive")
 
 
-# def ide_opener():
-    # while True:
-    #     ide_checker = input("Do you want to open an IDE? ")
-    #     if ide_checker == 'N':
-    #         break
-    #     else:
-    #         which_ide = input("Do you want to open -(A)tom, (P)ycharm or (I)ntellij? ")
-    #         if which_ide.upper() is not 'A' or not 'P' or not 'I':
-    #             print("Please try again")
-    #         elif which_ide.upper() == 'A':
-    #             os.system("atom")
-    #             break
-    #         elif which_ide.upper() == 'P':
-    #             subprocess.call("pycharm")
+def ide_opener():
+    os.system("D:\Git\git-bash.exe")
+    while True:
+        ide_checker = input("Do you want to open an IDE? ")
+        if ide_checker == 'N':
+            break
+        else:
+            which_ide = input("Do you want to open -(A)tom, (P)ycharm or (I)ntellij? ")
+            if which_ide.upper() is not 'A' and not 'P' and not 'I':
+                print("Please try again")
+            elif which_ide.upper() == 'A':
+                os.system("Atom")
+                break
+            elif which_ide.upper() == 'P':
+                subprocess.call("pycharm")
 
 
 if __name__ == "__main__":
@@ -84,4 +85,4 @@ if __name__ == "__main__":
         print(f"Only Project {project_key} exists")
     os.chdir(enter_project_name())  # change directory to project folder
     checkout_branch()
-    # ide_opener()
+    ide_opener()
