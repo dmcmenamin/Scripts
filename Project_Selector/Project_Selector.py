@@ -83,24 +83,27 @@ def ide_opener():
     Check if User wants an IDE open, and open it for them
     :return: None
     """
-    t = Thread(target=lambda: subprocess.call("D:\\Git\\git-bash.exe"))
-    t.start()
+    # t = Thread(target=lambda: subprocess.call("D:\\Git\\git-bash.exe"))
+    # t.start()
     loop = True
     while loop:
         ide_checker = input("Do you want to open an IDE? ")
         if ide_checker == 'N':
-            loop = False
+            break
         else:
-            which_ide = input("Do you want to open -(A)tom, (P)ycharm or (I)ntellij? ")
-            if which_ide.upper() is not 'A' and not 'P' and not 'I':
+            which_ide = input(
+                "Do you want to open -(A)tom, (P)ycharm or (I)ntellij? or (V)sCode: ")
+            if which_ide.upper() is not 'A' and not 'P' and not 'I' and not 'V':
                 print("Please try again")
             elif which_ide.upper() == 'A':
                 os.system("Atom .")     # Open Atom to the current Directory
-                loop = False
+                break
             elif which_ide.upper() == 'P':
-                os.system(r"C:\Program Files\JetBrains\PyCharm Community Edition 2019.1.3\bin\Pycharm64.exe "
-                          r"{}".format(os.getcwd()))
-                loop = False
+                os.system("pycharm .")
+                break
+            elif which_ide.upper() == 'V':
+                os.system("code .")
+                break
     return None
 
 
